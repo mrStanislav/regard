@@ -37,6 +37,28 @@ object(test)#3 (1) {
   }
 }
 ```
+> Задача №1
+Даны две модели Order и Manager
+
+```
+class Order extends Model
+{
+    public function manager()
+    {
+    	return $this->hasOne('App\Manager');
+    }
+}
+
+class Manager extends Model
+{
+
+}
+
+```
+Каждый Order имеет manager_id. Manager имеет id, firstName, lastName
+Необходимо вывести 50 заказов (Order) + fullName менеджера с минимальным кол-вом запросов к бд.
+Дополните класс Order.
+Реализовать нужно без использование join.
 
 > Задача №3
 Даны веса посылок $boxes и вес, который может увезти курьер $weight.
