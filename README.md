@@ -24,6 +24,19 @@ function reverse($a) {
 $ob1 = reverse($a);
 var_dump($ob1);
 ```
+>> Ответ:
+```
+object(test)#3 (1) {
+  ["next"]=>
+  object(test)#2 (1) {
+    ["next"]=>
+    object(test)#1 (1) {
+      ["next"]=>
+      NULL
+    }
+  }
+}
+```
 
 > Задача №3
 Даны веса посылок $boxes и вес, который может увезти курьер $weight.
