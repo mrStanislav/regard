@@ -16,7 +16,7 @@
 				
 		for ($i = 0; $i < count($boxes)-1; $i++) {
 			for ($j = $i + 1; $j < count($boxes); $j++) {
-				if ($boxes[$i] < $boxes[$j]) {
+				if($boxes[$i] < $boxes[$j]) {
 					$tmp = $boxes[$i];
 					$tmpI = $boxesId[$i];
 					$boxes[$i] = $boxes[$j];
@@ -27,18 +27,18 @@
 			}
 		}
 		$i = 0;
-		$N = 0;
+		$n = 0;
 		while ($i < count($boxes)-1) {
 			$j = $i + 1;
 			$fl = 0;
 			while ($j < count($boxes)) {
-				if ($boxes[$i] + $boxes[$j] == $weight) {
+				if($boxes[$i] + $boxes[$j] == $weight) {
 					echo "Delivering: post #".$boxesId[$i]." (".$boxes[$i]." kg) and #".$boxesId[$j]." (".$boxes[$j]." kg)<br>";
 					array_splice($boxes, $i, 1);
 					array_splice($boxesId, $i, 1);
 					array_splice($boxes, $j-1, 1);
 					array_splice($boxesId, $j-1, 1);
-					$N++;	
+					$n++;	
 					$fl = 1;
 					break;
 				}
@@ -47,16 +47,19 @@
 			if ($fl == 0) $i++;
 		}
 		$undelPosts = array();
-		for ($i = 0 ; $i < count($boxes); $i++) {
-			if ($boxes[$i] > $weight) { array_push($undelPosts, $i); continue; }
+		for($i = 0 ; $i < count($boxes); $i++) {
+			if($boxes[$i] > $weight) { 
+				array_push($undelPosts, $i); 
+				continue; 
+			}
 			echo "Delivering: post #".$boxesId[$i]." (".$boxes[$i]." kg)<br>";
-			$N++;
+			$n++;
 		}
 		echo "<br>";
 		for ($i = 0 ; $i < count($undelPosts); $i++) {
 			echo "UnDelivered post #".$boxesId[$undelPosts[$i]]." (".$boxes[$undelPosts[$i]]." kg) > ".$weight." kg<br>";
 		}
-		return $N;
+		return $n;
 	}
 	
 	echo "<br>Total trip = ".getResult($boxes1, $boxesId1, $weight1);
