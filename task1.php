@@ -12,7 +12,7 @@
 
 	function reverse($a) 
 	{
-		// для удобства и наглядности можно передать в while срзу "a"
+		// для удобства и наглядности (можно передать в while срзу "a")
 		$curItem = $a;
 		$prevItem = null;
 		while ($curItem != null) {
